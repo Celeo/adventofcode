@@ -70,10 +70,26 @@ def main() -> None:
     valid = []
     for msg in messages:
         rest, ok = message_valid(msg, rules)
-        if ok and len(rest) == 0:
+        if len(rest) == 0 and ok:
             valid.append(msg)
     print(len(valid))
 
 
 if __name__ == "__main__":
-    main()
+    # Positive
+    assert message_valid("a", {0: "a"}) == ("", True)
+    assert message_valid("a", {}, rule_overide="a") == ("", True)
+    assert message_valid("ab", {0: "a"}) == ("b", True)
+    assert message_valid("ab", {0: "1 2", 1: "a", 2: "b"}) == ("", True)
+    assert message_valid("abc", {0: "1 2", 1: "a", 2: "b"}) == ("c", True)
+    assert message_valid("a", {0: "1 | 2", 1: "b", 2: "a"}) == ("", True)
+    assert message_valid("ab", {0: "1 2 | 2 1", 1: "b", 2: "a"}) == ("", True)
+    assert message_valid("abc", {0: "1 2 | 2 1", 1: "b", 2: "a"}) == (
+        "c",
+        True,
+    )  # FIXME I think this should pass
+
+    # Negative
+    assert message_valid("a", {0: "b"}) == ("a", False)
+
+    # main()
