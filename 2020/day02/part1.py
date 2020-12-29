@@ -1,4 +1,10 @@
 from dataclasses import dataclass
+from typing import List
+
+
+def get_prompt() -> List[str]:
+    with open("2020/day02/input.txt") as f:
+        return [line.strip() for line in f.readlines()]
 
 
 @dataclass
@@ -26,12 +32,11 @@ class Entry:
         return self.a <= self.password.count(self.letter) <= self.b
 
 
-def main():
-    with open("2020/day2/input.txt") as f:
-        data = [Entry.load(line) for line in f.readlines()]
+def main(prompt: List[str]) -> int:
+    data = [Entry.load(e) for e in prompt]
     valid_count = sum([e.valid() for e in data])
-    print(valid_count)
+    return valid_count
 
 
 if __name__ == "__main__":
-    main()
+    print(main(get_prompt()))

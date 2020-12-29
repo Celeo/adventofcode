@@ -1,14 +1,18 @@
 from itertools import combinations
+from typing import List, Optional
 
 
-def main():
-    with open("2020/day1/input.txt") as f:
-        data = combinations([int(line) for line in f.readlines()], 3)
+def get_prompt() -> List[int]:
+    with open("2020/day01/input.txt") as f:
+        return [int(line) for line in f.readlines()]
+
+
+def main(prompt: List[int]) -> Optional[int]:
+    data = combinations(prompt, 3)
     for pair in data:
         if pair[0] + pair[1] + pair[2] == 2020:
-            print(pair[0] * pair[1] * pair[2])
-            return
+            return pair[0] * pair[1] * pair[2]
 
 
 if __name__ == "__main__":
-    main()
+    print(main(get_prompt()))
