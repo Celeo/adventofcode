@@ -1,6 +1,7 @@
 use anyhow::Result;
 use log::{debug, error};
 use std::env;
+
 mod day01;
 mod day02;
 

@@ -1,8 +1,5 @@
-use log::info;
-use std::fs;
-
 pub fn parse() -> Vec<u32> {
-    let values = fs::read_to_string("src/day01/input.txt").unwrap();
+    let values = std::fs::read_to_string("src/day01/input.txt").unwrap();
     values
         .trim()
         .chars()
@@ -21,5 +18,5 @@ pub fn run() {
         }
         last = number;
     }
-    info!("Result is {}", sum);
+    log::info!("Result is {}", sum);
 }
