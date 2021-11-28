@@ -2,10 +2,11 @@ use anyhow::Result;
 use log::{debug, error};
 use std::env;
 mod day01;
+mod day02;
 
 const DAY_RESOLVER: &[(&str, fn())] = &[
     ("day01a", day01::part_a::run),
-    ("day01b", day01::part_b::run),
+    ("day02a", day02::part_a::run),
 ];
 
 fn main() -> Result<()> {
