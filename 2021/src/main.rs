@@ -1,6 +1,6 @@
-use anyhow::Result;
 use log::{debug, error};
 use std::env;
+
 mod day01;
 
 const DAY_RESOLVER: &[(&str, fn())] = &[
@@ -8,7 +8,7 @@ const DAY_RESOLVER: &[(&str, fn())] = &[
     ("day01b", day01::part_b::run),
 ];
 
-fn main() -> Result<()> {
+fn main() {
     if env::var("RUST_LOG").is_err() {
         env::set_var("RUST_LOG", "debug");
     }
@@ -36,6 +36,4 @@ fn main() -> Result<()> {
     } else {
         error!("No target supplied");
     }
-
-    Ok(())
 }
