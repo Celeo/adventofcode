@@ -4,6 +4,7 @@ use std::env;
 mod day01;
 mod day02;
 mod day03;
+mod day04;
 
 const DAY_RESOLVER: &[(&str, fn())] = &[
     ("day01a", day01::part_a::run),
@@ -12,6 +13,8 @@ const DAY_RESOLVER: &[(&str, fn())] = &[
     ("day02b", day02::part_b::run),
     ("day03a", day03::part_a::run),
     ("day03b", day03::part_b::run),
+    ("day04a", day04::part_a::run),
+    ("day04b", day04::part_b::run),
 ];
 
 fn main() {
