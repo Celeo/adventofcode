@@ -13,5 +13,5 @@ pub fn run() {
             (value, if value > acc.0 { acc.1 + 1 } else { acc.1 })
         })
         .1;
-    log::info!("Result: {}", result); // 1633
+    println!("Result: {}", result); // 1633
 }

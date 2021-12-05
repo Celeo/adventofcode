@@ -86,7 +86,7 @@ pub fn run() {
     for draw_index in 5..draws.len() {
         let drawn: Vec<_> = draws.iter().take(draw_index).copied().collect();
         if let Some(result) = check_win(&boards, &drawn) {
-            log::info!("Result: {}", result);
+            println!("Result: {}", result);
             return;
         }
     }

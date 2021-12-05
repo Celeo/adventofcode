@@ -13,7 +13,7 @@ pub fn run() {
         gamma.push(if zero_more { '0' } else { '1' });
         epsilon.push(if zero_more { '1' } else { '0' });
     }
-    log::info!(
+    println!(
         "Result: {}",
         usize::from_str_radix(&gamma, 2).unwrap() * usize::from_str_radix(&epsilon, 2).unwrap()
     ); // 775304

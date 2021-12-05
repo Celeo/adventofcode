@@ -7,5 +7,5 @@ pub fn run() {
             (value, if value > acc.0 { acc.1 + 1 } else { acc.1 })
         })
         .1;
-    log::info!("Result: {}", larger); // 1602
+    println!("Result: {}", larger); // 1602
 }

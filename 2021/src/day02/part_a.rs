@@ -13,5 +13,5 @@ pub fn run() {
                 _ => (x, y),
             }
         });
-    log::info!("Result: {}", x * y); // 1855814
+    println!("Result: {}", x * y); // 1855814
 }

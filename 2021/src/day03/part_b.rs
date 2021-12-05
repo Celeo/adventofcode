@@ -33,7 +33,7 @@ fn find_rating(mut lines: Vec<&str>, most_common: bool) -> usize {
 pub fn run() {
     let data = std::fs::read_to_string("src/day03/input.txt").unwrap();
     let lines: Vec<_> = data.split_terminator('\n').collect();
-    log::info!(
+    println!(
         "Result: {}",
         find_rating(lines.clone(), true) * find_rating(lines.clone(), false)
     ); // 1370737

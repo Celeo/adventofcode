@@ -94,7 +94,7 @@ pub fn run() {
             boards.remove(index);
             // FIXME this isn't being reached
             if boards.is_empty() {
-                log::info!("Result: {}", result);
+                println!("Result: {}", result);
                 return;
             }
         }

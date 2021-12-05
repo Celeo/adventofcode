@@ -1,6 +1,3 @@
-use log::{debug, error};
-use std::env;
-
 mod day01;
 mod day02;
 mod day03;
@@ -18,31 +15,20 @@ const DAY_RESOLVER: &[(&str, fn())] = &[
 ];
 
 fn main() {
-    if env::var("RUST_LOG").is_err() {
-        env::set_var("RUST_LOG", "debug");
-    }
-    pretty_env_logger::init();
-    debug!("Starting");
-
-    let args: Vec<_> = env::args().skip(1).collect();
+    let args: Vec<_> = std::env::args().skip(1).collect();
     if let Some(target_number) = args.get(0) {
-        debug!("Target specified: {}", target_number);
         let day_fn = if target_number.starts_with("day") {
             target_number.to_owned()
         } else {
             format!("day{}", target_number)
         };
-        debug!("Day function: {}", day_fn);
         if let Some(matching) = DAY_RESOLVER.iter().find(|&(name, _)| name == &day_fn) {
-            debug!("Running {}", matching.0);
-
+            println!("Running {}", matching.0);
             matching.1();
-
-            debug!("Done");
         } else {
-            error!("Could not find matching function");
+            eprintln!("Could not find matching function");
         }
     } else {
-        error!("No target supplied");
+        eprintln!("No target supplied");
     }
 }
