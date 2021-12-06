@@ -1,13 +1,6 @@
 fn tick(fish: &[i8]) -> Vec<i8> {
     fish.iter()
-        .flat_map(|f| {
-            let next = f - 1;
-            if next == -1 {
-                vec![6, 8]
-            } else {
-                vec![next]
-            }
-        })
+        .flat_map(|f| if f - 1 == -1 { vec![6, 8] } else { vec![f - 1] })
         .collect()
 }
 
@@ -17,5 +10,5 @@ pub fn run() {
     for _round in 0..80 {
         fish = tick(&fish);
     }
-    println!("There are {} fish", fish.len()); // 362639
+    println!("Result: {}", fish.len()); // 362639
 }
