@@ -5,6 +5,8 @@ mod day04;
 mod day05;
 mod day06;
 mod day07;
+mod day08;
+mod day09;
 
 const DAY_RESOLVER: &[(&str, fn())] = &[
     ("day01a", day01::part_a::run),
@@ -21,6 +23,10 @@ const DAY_RESOLVER: &[(&str, fn())] = &[
     ("day06b", day06::part_b::run),
     ("day07a", day07::part_a::run),
     ("day07b", day07::part_b::run),
+    ("day08a", day08::part_a::run),
+    ("day08b", day08::part_b::run),
+    ("day09a", day09::part_a::run),
+    ("day09b", day09::part_b::run),
 ];
 
 fn main() {
