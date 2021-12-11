@@ -31,5 +31,5 @@ pub fn run() {
     let raw = std::fs::read_to_string("src/day10/input.txt").unwrap();
     let lines: Vec<_> = raw.split_terminator('\n').collect();
     let result: u64 = lines.iter().map(|&line| score_line(line)).sum();
-    println!("Result: {}", result);
+    println!("Result: {}", result); // 311949
 }
