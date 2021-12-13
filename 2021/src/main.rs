@@ -10,6 +10,25 @@ mod day09;
 mod day10;
 mod day11;
 mod day12;
+mod day13;
+mod day14;
+mod day15;
+mod day16;
+mod day17;
+mod day18;
+mod day19;
+mod day20;
+mod day21;
+mod day22;
+mod day23;
+mod day24;
+mod day25;
+mod day26;
+mod day27;
+mod day28;
+mod day29;
+mod day30;
+mod day31;
 
 const DAY_RESOLVER: &[(&str, fn())] = &[
     ("day01a", day01::part_a::run),
@@ -36,6 +55,44 @@ const DAY_RESOLVER: &[(&str, fn())] = &[
     ("day11b", day11::part_b::run),
     ("day12a", day12::part_a::run),
     ("day12b", day12::part_b::run),
+    ("day13a", day13::part_a::run),
+    ("day13b", day13::part_b::run),
+    ("day14a", day14::part_a::run),
+    ("day14b", day14::part_b::run),
+    ("day15a", day15::part_a::run),
+    ("day15b", day15::part_b::run),
+    ("day16a", day16::part_a::run),
+    ("day16b", day16::part_b::run),
+    ("day17a", day17::part_a::run),
+    ("day17b", day17::part_b::run),
+    ("day18a", day18::part_a::run),
+    ("day18b", day18::part_b::run),
+    ("day19a", day19::part_a::run),
+    ("day19b", day19::part_b::run),
+    ("day20a", day20::part_a::run),
+    ("day20b", day20::part_b::run),
+    ("day21a", day21::part_a::run),
+    ("day21b", day21::part_b::run),
+    ("day22a", day22::part_a::run),
+    ("day22b", day22::part_b::run),
+    ("day23a", day23::part_a::run),
+    ("day23b", day23::part_b::run),
+    ("day24a", day24::part_a::run),
+    ("day24b", day24::part_b::run),
+    ("day25a", day25::part_a::run),
+    ("day25b", day25::part_b::run),
+    ("day26a", day26::part_a::run),
+    ("day26b", day26::part_b::run),
+    ("day27a", day27::part_a::run),
+    ("day27b", day27::part_b::run),
+    ("day28a", day28::part_a::run),
+    ("day28b", day28::part_b::run),
+    ("day29a", day29::part_a::run),
+    ("day29b", day29::part_b::run),
+    ("day30a", day30::part_a::run),
+    ("day30b", day30::part_b::run),
+    ("day31a", day31::part_a::run),
+    ("day31b", day31::part_b::run),
 ];
 
 fn main() {
