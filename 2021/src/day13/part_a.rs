@@ -57,5 +57,5 @@ pub fn run() {
     let raw = std::fs::read_to_string("src/day13/input.txt").unwrap();
     let (dots, instructions) = parse(&raw);
     let after_one = fold(&dots, instructions.get(0).unwrap());
-    println!("Result: {}", after_one.len());
+    println!("Result: {}", after_one.len()); // 712
 }
