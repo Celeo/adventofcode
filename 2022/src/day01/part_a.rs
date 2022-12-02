@@ -1,7 +1,7 @@
-use anyhow::anyhow;
+use anyhow::{anyhow, Result};
 use log::info;
 
-pub fn run() -> anyhow::Result<()> {
+pub fn run() -> Result<()> {
     let text = std::fs::read_to_string("src/day01/input.txt")?;
     let result: u64 = text
         .split("\n\n")

@@ -1,3 +1,14 @@
-pub fn run() -> anyhow::Result<()> {
-    todo!()
+use anyhow::Result;
+use log::info;
+
+pub fn run() -> Result<()> {
+    let text = std::fs::read_to_string("src/day01/input.txt")?;
+    let mut elves: Vec<u64> = text
+        .split("\n\n")
+        .map(|line| line.split("\n").filter_map(|s| s.parse::<u64>().ok()).sum())
+        .collect();
+    elves.sort_by(|a, b| b.cmp(a));
+    let result: u64 = elves.iter().take(3).sum();
+    info!("{result}");
+    Ok(())
 }
