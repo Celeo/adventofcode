@@ -1,3 +1,5 @@
+//! Advent of Code 2022
+
 #![deny(
     clippy::all,
     clippy::pedantic,
@@ -16,7 +18,7 @@ use log::{debug, error, info};
 use std::env;
 
 mod day01;
-// mod day02;
+mod day02;
 // mod day03;
 // mod day04;
 // mod day05;
@@ -47,11 +49,13 @@ mod day01;
 // mod day30;
 // mod day31;
 
-const DAY_RESOLVER: &[(&str, fn() -> anyhow::Result<()>)] = &[
+type DayFunction = fn() -> anyhow::Result<()>;
+
+const DAY_RESOLVER: &[(&str, DayFunction)] = &[
     ("day01a", day01::part_a::run),
     ("day01b", day01::part_b::run),
-    //     ("day02a", day02::part_a::run),
-    //     ("day02b", day02::part_b::run),
+    ("day02a", day02::part_a::run),
+    ("day02b", day02::part_b::run),
     //     ("day03a", day03::part_a::run),
     //     ("day03b", day03::part_b::run),
     //     ("day04a", day04::part_a::run),
@@ -135,7 +139,7 @@ fn main() {
     debug!("CLI args: {:?}", args);
 
     let day_fn = if args.day_part.starts_with("day") {
-        args.day_part.to_owned()
+        args.day_part
     } else {
         format!("day{}", args.day_part)
     };

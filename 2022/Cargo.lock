@@ -24,6 +24,7 @@ dependencies = [
  "anyhow",
  "clap",
  "log",
+ "once_cell",
  "pretty_env_logger",
 ]
 
