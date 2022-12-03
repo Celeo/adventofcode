@@ -14,7 +14,7 @@
 )]
 
 use clap::Parser;
-use log::{debug, error, info};
+use log::{debug, error};
 use std::env;
 
 mod day01;
@@ -144,7 +144,7 @@ fn main() {
         format!("day{}", args.day_part)
     };
     if let Some(matching) = DAY_RESOLVER.iter().find(|&(name, _)| name == &day_fn) {
-        info!("Running {}", matching.0);
+        debug!("Running {}", matching.0);
         if let Err(e) = matching.1() {
             error!("Error running function: {e}");
         }
