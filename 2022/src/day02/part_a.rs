@@ -11,8 +11,7 @@ static WINS_AGAINST: Lazy<HashMap<char, char>> = Lazy::new(|| {
     map
 });
 
-pub fn run() -> Result<()> {
-    let text = std::fs::read_to_string("src/day02/input.txt")?;
+pub fn run(text: &str) -> Result<()> {
     let rounds: Vec<usize> = text
         .split_terminator('\n')
         .map(|line| {

@@ -1,8 +1,7 @@
 use anyhow::Result;
 use log::info;
 
-pub fn run() -> Result<()> {
-    let text = std::fs::read_to_string("src/day01/input.txt")?;
+pub fn run(text: &str) -> Result<()> {
     let mut elves: Vec<u64> = text
         .split_terminator("\n\n")
         .map(|line| line.split('\n').filter_map(|s| s.parse::<u64>().ok()).sum())

@@ -1,8 +1,7 @@
 use anyhow::Result;
 use log::info;
 
-pub fn run() -> Result<()> {
-    let text = std::fs::read_to_string("src/day02/input.txt")?;
+pub fn run(text: &str) -> Result<()> {
     let result: usize = text
         .split_terminator('\n')
         .map(|line| {

@@ -15,7 +15,7 @@
 
 use clap::Parser;
 use log::{debug, error};
-use std::env;
+use std::{env, fs, process};
 
 mod day01;
 mod day02;
@@ -49,7 +49,7 @@ mod day02;
 // mod day30;
 // mod day31;
 
-type DayFunction = fn() -> anyhow::Result<()>;
+type DayFunction = fn(&str) -> anyhow::Result<()>;
 
 const DAY_RESOLVER: &[(&str, DayFunction)] = &[
     ("day01a", day01::part_a::run),
@@ -144,8 +144,17 @@ fn main() {
         format!("day{}", args.day_part)
     };
     if let Some(matching) = DAY_RESOLVER.iter().find(|&(name, _)| name == &day_fn) {
+        let path = format!("src/{}/input.txt", &day_fn[..day_fn.len() - 1]);
+        debug!("Loading {path}");
+        let text = match fs::read_to_string(&path) {
+            Ok(t) => t,
+            Err(e) => {
+                error!("Could not read input file: {e}");
+                process::exit(1);
+            }
+        };
         debug!("Running {}", matching.0);
-        if let Err(e) = matching.1() {
+        if let Err(e) = matching.1(&text) {
             error!("Error running function: {e}");
         }
     } else {
