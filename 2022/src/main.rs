@@ -19,7 +19,7 @@ use std::{env, fs, process};
 
 mod day01;
 mod day02;
-// mod day03;
+mod day03;
 // mod day04;
 // mod day05;
 // mod day06;
@@ -56,8 +56,8 @@ const DAY_RESOLVER: &[(&str, DayFunction)] = &[
     ("day01b", day01::part_b::run),
     ("day02a", day02::part_a::run),
     ("day02b", day02::part_b::run),
-    //     ("day03a", day03::part_a::run),
-    //     ("day03b", day03::part_b::run),
+    ("day03a", day03::part_a::run),
+    ("day03b", day03::part_b::run),
     //     ("day04a", day04::part_a::run),
     //     ("day04b", day04::part_b::run),
     //     ("day05a", day05::part_a::run),
