@@ -49,9 +49,8 @@ mod day05;
 // mod day30;
 // mod day31;
 
-type DayFunction = fn(&str) -> anyhow::Result<()>;
-
-const DAY_RESOLVER: &[(&str, DayFunction)] = &[
+#[allow(clippy::type_complexity)]
+const DAY_RESOLVER: &[(&str, fn(&str))] = &[
     ("day01a", day01::part_a::run),
     ("day01b", day01::part_b::run),
     ("day02a", day02::part_a::run),
@@ -154,9 +153,7 @@ fn main() {
             }
         };
         debug!("Running {}", matching.0);
-        if let Err(e) = matching.1(&text) {
-            error!("Error running function: {e}");
-        }
+        matching.1(&text);
     } else {
         error!("Could not find matching function");
     }

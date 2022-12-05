@@ -1,7 +1,6 @@
-use anyhow::Result;
 use log::info;
 
-pub fn run(text: &str) -> Result<()> {
+pub fn run(text: &str) {
     let result = text
         .split_terminator('\n')
         .map(|line| {
@@ -15,11 +14,10 @@ pub fn run(text: &str) -> Result<()> {
                 .collect::<Vec<_>>()
         })
         .filter(|group| {
-            let (a, b) = (group.get(0).unwrap(), group.get(1).unwrap());
-            (a.0..a.1 + 1).any(|i| (b.0..b.1 + 1).contains(&i))
+            let (a, b) = (group.first().unwrap(), group.get(1).unwrap());
+            (a.0..=a.1).any(|i| (b.0..=b.1).contains(&i))
         })
         .count();
 
     info!("{result}");
-    Ok(())
 }

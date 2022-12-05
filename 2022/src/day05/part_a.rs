@@ -1,4 +1,3 @@
-use anyhow::Result;
 use itertools::Itertools;
 use log::info;
 use once_cell::sync::Lazy;
@@ -8,7 +7,7 @@ use std::collections::HashMap;
 static INSTRUCTION_REGEX: Lazy<Regex> =
     Lazy::new(|| Regex::new(r#"move (\d+) from (\d+) to (\d+)"#).unwrap());
 
-pub fn run(text: &str) -> Result<()> {
+pub fn run(text: &str) {
     let mut boxes: HashMap<usize, Vec<char>> = HashMap::new();
 
     text.split_terminator('\n').for_each(|line| {
@@ -22,26 +21,24 @@ pub fn run(text: &str) -> Result<()> {
                 (0..count).for_each(|_| {
                     let b = boxes.get_mut(&from).unwrap().pop().unwrap();
                     boxes.get_mut(&to).unwrap().push(b);
-                })
+                });
             } else {
                 let columns: Vec<_> = line
                     .chars()
                     .chunks(4)
                     .into_iter()
-                    .map(|c| c.collect::<String>())
+                    .map(std::iter::Iterator::collect::<String>)
                     .collect();
                 columns.iter().enumerate().for_each(|(index, item)| {
                     let index = index + 1;
-                    if !boxes.contains_key(&index) {
-                        let _ = boxes.insert(index, Vec::new());
-                    }
+                    let _ = boxes.entry(index).or_insert_with(Vec::new);
                     if !item.trim().is_empty() {
                         boxes
                             .get_mut(&index)
                             .unwrap()
-                            .insert(0, item.chars().skip(1).next().unwrap());
+                            .insert(0, item.chars().nth(1).unwrap());
                     }
-                })
+                });
             }
         }
     });
@@ -54,6 +51,4 @@ pub fn run(text: &str) -> Result<()> {
         result.push(*boxes.get(&index).unwrap().last().unwrap());
     }
     info!("{result}");
-
-    Ok(())
 }

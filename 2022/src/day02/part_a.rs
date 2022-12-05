@@ -1,4 +1,3 @@
-use anyhow::Result;
 use log::info;
 use once_cell::sync::Lazy;
 use std::collections::HashMap;
@@ -11,7 +10,7 @@ static WINS_AGAINST: Lazy<HashMap<char, char>> = Lazy::new(|| {
     map
 });
 
-pub fn run(text: &str) -> Result<()> {
+pub fn run(text: &str) {
     let rounds: Vec<usize> = text
         .split_terminator('\n')
         .map(|line| {
@@ -32,5 +31,4 @@ pub fn run(text: &str) -> Result<()> {
         })
         .collect();
     info!("{}", rounds.iter().sum::<usize>());
-    Ok(())
 }

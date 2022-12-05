@@ -1,7 +1,6 @@
-use anyhow::Result;
 use log::info;
 
-pub fn run(text: &str) -> Result<()> {
+pub fn run(text: &str) {
     let result: usize = text
         .split_terminator('\n')
         .map(|line| {
@@ -35,5 +34,4 @@ pub fn run(text: &str) -> Result<()> {
         .sum();
 
     info!("{}", result);
-    Ok(())
 }
