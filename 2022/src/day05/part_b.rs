@@ -1,5 +1,5 @@
 use anyhow::Result;
 
-pub fn run(text: &str) -> Result<()> {
+pub fn run(_text: &str) -> Result<()> {
     Ok(())
 }
