@@ -1,3 +1,5 @@
+#![allow(clippy::needless_for_each)]
+
 use itertools::Itertools;
 use log::info;
 use once_cell::sync::Lazy;
