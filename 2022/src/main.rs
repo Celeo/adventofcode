@@ -24,8 +24,8 @@ mod day04;
 mod day05;
 mod day06;
 mod day07;
-// mod day08;
-// mod day09;
+mod day08;
+mod day09;
 // mod day10;
 // mod day11;
 // mod day12;
@@ -65,10 +65,10 @@ const DAY_RESOLVER: &[(&str, fn(&str))] = &[
     ("day06b", day06::part_b::run),
     ("day07a", day07::part_a::run),
     ("day07b", day07::part_b::run),
-    //     ("day08a", day08::part_a::run),
-    //     ("day08b", day08::part_b::run),
-    //     ("day09a", day09::part_a::run),
-    //     ("day09b", day09::part_b::run),
+    ("day08a", day08::part_a::run),
+    ("day08b", day08::part_b::run),
+    ("day09a", day09::part_a::run),
+    ("day09b", day09::part_b::run),
     //     ("day10a", day10::part_a::run),
     //     ("day10b", day10::part_b::run),
     //     ("day11a", day11::part_a::run),
