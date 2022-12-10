@@ -5,7 +5,6 @@ pub fn run(text: &str) {
         .split_terminator('\n')
         .map(|line| line.chars().map(|c| c.to_digit(10).unwrap()).collect())
         .collect();
-
     let rows = map.len();
     let columns = map.get(0).unwrap().len();
     let mut visible = columns * 2 + (rows - 2) * 2;
@@ -29,7 +28,6 @@ pub fn run(text: &str) {
                     .unwrap()
                     < val
             {
-                info!("({x}, {y}) == {val} is visible");
                 visible += 1;
                 continue;
             }
