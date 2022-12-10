@@ -6,26 +6,34 @@ pub fn run(text: &str) {
         .map(|line| line.chars().map(|c| c.to_digit(10).unwrap()).collect())
         .collect();
 
-    let mut visible = map.get(0).unwrap().len() * 2 + (map.len() - 2) * 2;
-    for y in 1..map.len() - 1 {
-        for x in 1..map.get(y).unwrap().len() - 1 {
-            let item = map.get(y).unwrap().get(x).unwrap();
+    let rows = map.len();
+    let columns = map.get(0).unwrap().len();
+    let mut visible = columns * 2 + (rows - 2) * 2;
 
-            let row_max = map.get(y).unwrap().iter().max().unwrap();
-            if item >= row_max {
+    for y in 1..rows - 1 {
+        for x in 1..columns - 1 {
+            let row = map.get(y).unwrap();
+            let column: Vec<u32> = map.iter().map(|row| *row.get(x).unwrap()).collect();
+            let val = map.get(y).unwrap().get(x).unwrap();
+
+            if (0..x).map(|xi| row.get(xi).unwrap()).max().unwrap() < val
+                || (x + 1..columns)
+                    .map(|xi| row.get(xi).unwrap())
+                    .max()
+                    .unwrap()
+                    < val
+                || (0..y).map(|yi| column.get(yi).unwrap()).max().unwrap() < val
+                || (y + 1..rows)
+                    .map(|yi| column.get(yi).unwrap())
+                    .max()
+                    .unwrap()
+                    < val
+            {
+                info!("({x}, {y}) == {val} is visible");
+                visible += 1;
                 continue;
             }
-
-            let column_max = map.iter().map(|row| row.get(x).unwrap()).max().unwrap();
-            if item >= column_max {
-                continue;
-            }
-
-            visible += 1;
         }
     }
-
-    info!("{visible}"); // 8761, 8753 -- too high
-
-    todo!()
+    info!("{visible}");
 }
