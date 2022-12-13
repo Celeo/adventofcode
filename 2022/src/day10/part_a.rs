@@ -17,7 +17,10 @@ pub fn run(text: &str) {
             x += m;
         }
         if index == 20 || index % 40 == 0 {
-            info!("Index {index}, x = {x}, signal = {}", (index as i32) * x);
+            info!(
+                "Index {index}, x = {x}, signal = {}",
+                i64::from(index) * i64::from(x)
+            );
         }
     }
     // while !pending.is_empty() {
