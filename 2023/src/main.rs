@@ -12,6 +12,7 @@
     unused_qualifications,
     unused_results
 )]
+#![allow(clippy::cast_possible_truncation)]
 
 use clap::Parser;
 use log::{debug, error};

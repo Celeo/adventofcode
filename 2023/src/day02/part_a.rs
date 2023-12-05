@@ -2,7 +2,7 @@ use log::info;
 use once_cell::sync::Lazy;
 use regex::Regex;
 
-static CUBES: Lazy<Regex> = Lazy::new(|| Regex::new(r#"\d+ \w+"#).unwrap());
+static CUBES: Lazy<Regex> = Lazy::new(|| Regex::new(r"\d+ \w+").unwrap());
 
 pub fn run(text: &str) {
     let val: u32 = text

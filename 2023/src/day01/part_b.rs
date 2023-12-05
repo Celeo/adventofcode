@@ -8,8 +8,8 @@ static NUMBERS: Lazy<Vec<&str>> = Lazy::new(|| {
 });
 
 fn take(line: &str) -> (&str, Option<u32>) {
-    let c = line.chars().nth(0).unwrap();
-    if c.is_digit(10) {
+    let c = line.chars().next().unwrap();
+    if c.is_ascii_digit() {
         return (&line[1..], Some(c.to_digit(10).unwrap()));
     }
     for (num, number) in NUMBERS.iter().enumerate() {

@@ -2,7 +2,7 @@ use once_cell::sync::Lazy;
 use regex::Regex;
 use std::{cmp::max, collections::HashMap};
 
-static CUBES: Lazy<Regex> = Lazy::new(|| Regex::new(r#"\d+ \w+"#).unwrap());
+static CUBES: Lazy<Regex> = Lazy::new(|| Regex::new(r"\d+ \w+").unwrap());
 
 pub fn run(text: &str) {
     let val: u32 = text
@@ -20,7 +20,7 @@ pub fn run(text: &str) {
             }
             let mut values = map.values();
             let start = values.next().unwrap();
-            values.into_iter().fold(*start, |acc, e| acc * e)
+            values.fold(*start, |acc, e| acc * e)
         })
         .sum();
 
