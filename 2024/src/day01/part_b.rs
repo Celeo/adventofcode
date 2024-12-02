@@ -1,3 +1,5 @@
+#![allow(clippy::cast_possible_wrap)]
+
 use itertools::Itertools;
 use log::info;
 
