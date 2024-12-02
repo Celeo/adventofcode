@@ -22,6 +22,7 @@ pub fn run(text: &str) {
             (left, right)
         })
         .collect();
+
     let left: Vec<_> = numbers.iter().map(|(n, _)| n).sorted_unstable().collect();
     let right: Vec<_> = numbers.iter().map(|(_, n)| n).sorted_unstable().collect();
 

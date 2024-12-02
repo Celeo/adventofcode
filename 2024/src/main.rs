@@ -53,7 +53,7 @@ mod day01;
 #[allow(clippy::type_complexity)]
 const DAY_RESOLVER: &[(&str, fn(&str))] = &[
     ("day01a", day01::part_a::run),
-    // ("day01b", day01::part_b::run),
+    ("day01b", day01::part_b::run),
     // ("day02a", day02::part_a::run),
     // ("day02b", day02::part_b::run),
     //     ("day03a", day03::part_a::run),
