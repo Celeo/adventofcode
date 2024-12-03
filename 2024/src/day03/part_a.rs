@@ -1,7 +1,6 @@
-use std::sync::LazyLock;
-
 use log::info;
 use regex::Regex;
+use std::sync::LazyLock;
 
 static PATTERN: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"mul\((\d+),(\d+)\)").unwrap());
 
