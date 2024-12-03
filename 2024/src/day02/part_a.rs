@@ -29,6 +29,6 @@ pub fn run(text: &str) {
         .map(|line| line.split(' ').map(|s| s.parse().unwrap()).collect())
         .collect();
 
-    let count = lines.iter().filter(|line| valid(&line)).count();
+    let count = lines.iter().filter(|line| valid(line)).count();
     info!("{count}");
 }
